@@ -2,6 +2,8 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Chapter01", "Chapter01\Chapter01.csproj", "{A6BB0AB5-4306-4388-9B70-EFD3A1E06702}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Chapter-03", "Chapter-03", "{7054BFD3-A702-4EDC-AFC5-0C94E44CDA1D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
