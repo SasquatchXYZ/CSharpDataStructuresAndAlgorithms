@@ -5,6 +5,7 @@ class Program
     static void Main(string[] args)
     {
         // Months.PrintMonths();
-        MultiplicationTable.PrintTable();
+        // MultiplicationTable.PrintTable();
+        GameMap.PrintMap();
     }
 }
