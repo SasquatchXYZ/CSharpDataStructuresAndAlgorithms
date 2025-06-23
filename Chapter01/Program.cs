@@ -4,6 +4,7 @@ class Program
 {
     static void Main(string[] args)
     {
-        Months.PrintMonths();
+        // Months.PrintMonths();
+        MultiplicationTable.PrintTable();
     }
 }
