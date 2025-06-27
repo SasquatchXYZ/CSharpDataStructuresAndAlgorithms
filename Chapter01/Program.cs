@@ -6,6 +6,7 @@ class Program
     {
         // Months.PrintMonths();
         // MultiplicationTable.PrintTable();
-        GameMap.PrintMap();
+        // GameMap.PrintMap();
+        YearlyTransportPlan.PrintPlan();
     }
 }
