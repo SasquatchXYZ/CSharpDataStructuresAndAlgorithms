@@ -1,8 +1,8 @@
 namespace SortingAlgorithms;
 
-public static class InsertionSort
+public class InsertionSort : AbstractSort
 {
-    public static void Sort(int[] array)
+    public override void Sort(int[] array)
     {
         // The initial value is set to 1 instead of 0 because the unsorted
         // portion of the array contains one element at the start.

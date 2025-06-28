@@ -1,8 +1,8 @@
 namespace SortingAlgorithms;
 
-public static class MergeSort
+public class MergeSort : AbstractSort
 {
-    public static void Sort(int[] array)
+    public override void Sort(int[] array)
     {
         if (array.Length <= 1) return;
 

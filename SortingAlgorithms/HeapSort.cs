@@ -1,8 +1,8 @@
 namespace SortingAlgorithms;
 
-public static class HeapSort
+public class HeapSort : AbstractSort
 {
-    public static void Sort(int[] array)
+    public override void Sort(int[] array)
     {
         // Initial `Heapify` operation to prepare the max-heap
         // Operating in reverse order and on each node that is not a leaf

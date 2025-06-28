@@ -1,13 +1,13 @@
 namespace SortingAlgorithms;
 
-public static class Quicksort
+public class Quicksort : AbstractSort
 {
-    public static void Sort(int[] array)
+    public override void Sort(int[] array)
     {
         SortPart(array, 0, array.Length - 1);
     }
 
-    public static void SortPart(int[] array, int lowerIndex, int upperIndex)
+    private static void SortPart(int[] array, int lowerIndex, int upperIndex)
     {
         if (lowerIndex >= upperIndex) return;
 

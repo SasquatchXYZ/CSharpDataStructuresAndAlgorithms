@@ -1,8 +1,8 @@
 namespace SortingAlgorithms;
 
-public static class ShellSort
+public class ShellSort : AbstractSort
 {
-    public static void Sort(int[] array)
+    public override void Sort(int[] array)
     {
         for (var h = array.Length / 2; h > 0; h /= 2)
         {

@@ -1,8 +1,8 @@
 ﻿namespace SortingAlgorithms;
 
-public static class SelectionSort
+public class SelectionSort : AbstractSort
 {
-    public static void Sort(int[] array)
+    public override void Sort(int[] array)
     {
         for (var i = 0; i < array.Length - 1; i++)
         {

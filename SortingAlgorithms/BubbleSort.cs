@@ -1,8 +1,8 @@
 namespace SortingAlgorithms;
 
-public static class BubbleSort
+public class BubbleSort : AbstractSort
 {
-    public static void Sort(int[] array)
+    public override void Sort(int[] array)
     {
         for (var i = 0; i < array.Length; i++)
         {
@@ -16,7 +16,7 @@ public static class BubbleSort
         }
     }
 
-    public static void ImprovedSort(int[] array)
+    public void ImprovedSort(int[] array)
     {
         for (var i = 0; i < array.Length; i++)
         {
