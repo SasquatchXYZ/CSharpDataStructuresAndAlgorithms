@@ -4,6 +4,9 @@ class Program
 {
     static void Main(string[] args)
     {
-        Console.WriteLine("Hello, World!");
+        // Months.PrintMonths();
+        // MultiplicationTable.PrintTable();
+        // GameMap.PrintMap();
+        YearlyTransportPlan.PrintPlan();
     }
 }
