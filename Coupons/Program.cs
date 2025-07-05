@@ -7,14 +7,13 @@ do
     if (!int.TryParse(number, out var coupon))
         break;
 
-    if (usedCoupons.Contains(coupon))
+    if (usedCoupons.Add(coupon))
     {
-        Console.WriteLine("Invalid coupon - Already used.");
+        Console.WriteLine("Coupon accepted - Thank you!");
     }
     else
     {
-        usedCoupons.Add(coupon);
-        Console.WriteLine("Coupon accepted - Thank you!");
+        Console.WriteLine("Invalid coupon - Already used.");
     }
 } while (true);
 
