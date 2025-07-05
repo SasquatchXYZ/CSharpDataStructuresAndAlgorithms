@@ -52,6 +52,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SwimmingPools", "SwimmingPo
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RemovingDuplicates", "RemovingDuplicates\RemovingDuplicates.csproj", "{C390DE52-56E1-4893-897D-C33488814E7C}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Chapter-07", "Chapter-07", "{057FD82D-B85B-498E-8923-CD363A0B58FE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
