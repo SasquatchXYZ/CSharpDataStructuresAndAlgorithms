@@ -27,5 +27,12 @@ graph.AddEdge(n7, n5, 4);
 graph.AddEdge(n7, n8, 6);
 graph.AddEdge(n8, n5, 3);
 
+Console.WriteLine("DFS:");
 var nodes = graph.Dfs();
 nodes.ForEach(Console.WriteLine);
+
+Console.WriteLine();
+
+Console.WriteLine("BFS:");
+var nodes2 = graph.Dfs();
+nodes2.ForEach(Console.WriteLine);

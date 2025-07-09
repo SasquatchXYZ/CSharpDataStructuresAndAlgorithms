@@ -138,4 +138,36 @@ public class Graph<T>
 
     #endregion
 
+    #region Breadth-First Search
+
+    public List<Node<T>> Bfs() => Bfs(Nodes[0]);
+
+    private List<Node<T>> Bfs(Node<T> node)
+    {
+        var isVisited = new bool[Nodes.Count];
+        isVisited[node.Index] = true;
+
+        var result = new List<Node<T>>();
+        var queue = new Queue<Node<T>>();
+        queue.Enqueue(node);
+        while (queue.Count > 0)
+        {
+            var next = queue.Dequeue();
+            result.Add(next);
+
+            foreach (var neighbor in next.Neighbors)
+            {
+                if (!isVisited[neighbor.Index])
+                {
+                    isVisited[neighbor.Index] = true;
+                    queue.Enqueue(neighbor);
+                }
+            }
+        }
+
+        return result;
+    }
+
+    #endregion
+
 }
