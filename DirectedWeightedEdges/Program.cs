@@ -26,3 +26,6 @@ graph.AddEdge(n6, n7, 1);
 graph.AddEdge(n7, n5, 4);
 graph.AddEdge(n7, n8, 6);
 graph.AddEdge(n8, n5, 3);
+
+var nodes = graph.Dfs();
+nodes.ForEach(Console.WriteLine);

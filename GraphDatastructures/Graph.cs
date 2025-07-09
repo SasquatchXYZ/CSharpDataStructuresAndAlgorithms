@@ -109,4 +109,33 @@ public class Graph<T>
         var i = 0;
         Nodes.ForEach(n => n.Index = i++);
     }
+
+    #region Depth-First Search
+
+    public List<Node<T>> Dfs()
+    {
+        var isVisited = new bool[Nodes.Count];
+        var result = new List<Node<T>>();
+        Dfs(isVisited, Nodes[0], result);
+        return result;
+    }
+
+    private static void Dfs(
+        bool[] isVisited,
+        Node<T> node,
+        List<Node<T>> result)
+    {
+        result.Add(node);
+        isVisited[node.Index] = true;
+        foreach (var neighbor in node.Neighbors)
+        {
+            if (!isVisited[neighbor.Index])
+            {
+                Dfs(isVisited, neighbor, result);
+            }
+        }
+    }
+
+    #endregion
+
 }
