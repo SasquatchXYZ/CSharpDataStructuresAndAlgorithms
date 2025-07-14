@@ -170,4 +170,73 @@ public class Graph<T>
 
     #endregion
 
+    #region Minimum Spanning Tree - Kruskal's Algorithm
+
+    public List<Edge<T>> MstKruskal()
+    {
+        var edges = GetEdges();
+        edges.Sort((x, y) => x.Weight.CompareTo(y.Weight));
+        var queue = new Queue<Edge<T>>(edges);
+
+        var subsets = new Subset<T>[Nodes.Count];
+        for (var i = 0; i < Nodes.Count; i++)
+        {
+            subsets[i] = new Subset<T> { Parent = Nodes[i] };
+        }
+
+        var result = new List<Edge<T>>();
+        while (result.Count < Nodes.Count - 1)
+        {
+            var edge = queue.Dequeue();
+            var from = GetRoot(subsets, edge.From);
+            var to = GetRoot(subsets, edge.To);
+            if (from == to)
+                continue;
+
+            result.Add(edge);
+            Union(subsets, from, to);
+        }
+
+        return result;
+    }
+
+    /// <summary>
+    /// Update parents for subsets and returns the root node of the subset
+    /// </summary>
+    private static Node<T> GetRoot(Subset<T>[] subsets, Node<T> node)
+    {
+        var index = node.Index;
+        subsets[index].Parent = subsets[index].Parent != node
+            ? GetRoot(subsets, subsets[index].Parent)
+            : subsets[index].Parent;
+
+        return subsets[index].Parent;
+    }
+
+    /// <summary>
+    /// Union by Rank of two sets, the two Nodes represent the root
+    /// nodes for subsets on which the union operation should be
+    /// performed
+    /// </summary>
+    /// <param name="subsets">Array of Subset instances</param>
+    /// <param name="a"></param>
+    /// <param name="b"></param>
+    private static void Union(Subset<T>[] subsets, Node<T> a, Node<T> b)
+    {
+        subsets[b.Index].Parent = subsets[a.Index].Rank >= subsets[b.Index].Rank
+            ? a
+            : subsets[b.Index].Parent;
+
+        subsets[a.Index].Parent = subsets[a.Index].Rank < subsets[b.Index].Rank
+            ? b
+            : subsets[a.Index].Parent;
+
+        if (subsets[a.Index].Rank == subsets[b.Index].Rank)
+        {
+            subsets[a.Index].Rank++;
+        }
+    }
+
+    #endregion
+
 }

@@ -74,6 +74,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DirectedWeightedEdges", "Di
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UndirectedUnweightedEdges", "UndirectedUnweightedEdges\UndirectedUnweightedEdges.csproj", "{6C6C54B8-5539-4E23-8D62-A6172C411EE6}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UndirectedWeightedEdges", "UndirectedWeightedEdges\UndirectedWeightedEdges.csproj", "{9EC31432-AEFD-48D6-B73E-2D86811A133C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -204,6 +206,10 @@ Global
 		{6C6C54B8-5539-4E23-8D62-A6172C411EE6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6C6C54B8-5539-4E23-8D62-A6172C411EE6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6C6C54B8-5539-4E23-8D62-A6172C411EE6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9EC31432-AEFD-48D6-B73E-2D86811A133C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9EC31432-AEFD-48D6-B73E-2D86811A133C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9EC31432-AEFD-48D6-B73E-2D86811A133C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9EC31432-AEFD-48D6-B73E-2D86811A133C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{F30B720E-3186-4945-ABE4-EDC6D78D9293} = {7054BFD3-A702-4EDC-AFC5-0C94E44CDA1D}
@@ -236,5 +242,6 @@ Global
 		{84EAF9D3-B886-4F18-9FB9-BA969DC45CC7} = {03296E12-E728-404D-9DFB-AFD14594C40C}
 		{EA6387ED-A1AA-4F78-AE5F-AD935D06FAA3} = {03296E12-E728-404D-9DFB-AFD14594C40C}
 		{6C6C54B8-5539-4E23-8D62-A6172C411EE6} = {03296E12-E728-404D-9DFB-AFD14594C40C}
+		{9EC31432-AEFD-48D6-B73E-2D86811A133C} = {03296E12-E728-404D-9DFB-AFD14594C40C}
 	EndGlobalSection
 EndGlobal
