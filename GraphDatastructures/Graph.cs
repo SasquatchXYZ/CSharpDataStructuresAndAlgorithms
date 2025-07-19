@@ -316,4 +316,36 @@ public class Graph<T>
 
     #endregion
 
+    #region Coloring
+
+    public int[] Color()
+    {
+        // Stores the indices of colors chosen for particular nodes
+        var colors = new int[Nodes.Count];
+        Array.Fill(colors, -1);
+        colors[0] = 0;
+
+        // Stores information about the availability of colors
+        var available = new bool[Nodes.Count];
+        for (var i = 1; i < Nodes.Count; i++)
+        {
+            Array.Fill(available, true);
+
+            foreach (var neighbor in Nodes[i].Neighbors)
+            {
+                var ci = colors[neighbor.Index];
+                if (ci >= 0)
+                {
+                    available[ci] = false;
+                }
+            }
+
+            colors[i] = Array.IndexOf(available, true);
+        }
+
+        return colors;
+    }
+
+    #endregion
+
 }
