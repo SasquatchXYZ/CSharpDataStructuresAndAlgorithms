@@ -23,5 +23,14 @@ graph.AddEdge(n5, n8, 1);
 graph.AddEdge(n6, n7, 6);
 graph.AddEdge(n7, n8, 20);
 
-var edges = graph.MstKruskal();
-edges.ForEach(Console.WriteLine);
+Console.WriteLine("Minimum Spanning Tree - Kruskal:");
+var kruskal = graph.MstKruskal();
+kruskal.ForEach(Console.WriteLine);
+Console.WriteLine($"Cost: {kruskal.Sum(edge => edge.Weight)}");
+
+Console.WriteLine();
+
+Console.WriteLine("Minimum Spanning Tree - Prim:");
+var prim = graph.MstPrim();
+prim.ForEach(Console.WriteLine);
+Console.WriteLine($"Cost: {prim.Sum(edge => edge.Weight)}");

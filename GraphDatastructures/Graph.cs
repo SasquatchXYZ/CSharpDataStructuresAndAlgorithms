@@ -239,4 +239,81 @@ public class Graph<T>
 
     #endregion
 
+    #region Minimum Spanning Tree - Prim's Algorithm
+
+    public List<Edge<T>> MstPrim()
+    {
+        // Stores indices of the previous node,
+        // from which the given node can be reached
+        var previous = new int[Nodes.Count];
+        previous[0] = -1;
+
+        // Stores the minimum weight of the edge
+        // for accessing the given node
+        var minWeight = new int[Nodes.Count];
+        Array.Fill(minWeight, int.MaxValue);
+        minWeight[0] = 0;
+
+        // Indicates whether the given node is already in
+        // the MST
+        var isInMst = new bool[Nodes.Count];
+        Array.Fill(isInMst, false);
+
+        for (var i = 0; i < Nodes.Count - 1; i++)
+        {
+            var mwi = GetMinWeightIndex(minWeight, isInMst);
+            isInMst[mwi] = true;
+
+            for (var j = 0; j < Nodes.Count; j++)
+            {
+                var edge = this[mwi, j];
+                var weight = edge is not null
+                    ? edge.Weight
+                    : -1;
+
+                if (edge is not null &&
+                    !isInMst[j] &&
+                    weight < minWeight[j])
+                {
+                    previous[j] = mwi;
+                    minWeight[j] = weight;
+                }
+            }
+        }
+
+        var result = new List<Edge<T>>();
+        for (var i = 1; i < Nodes.Count; i++)
+        {
+            result.Add(this[previous[i], i]!);
+        }
+
+        return result;
+    }
+
+    /// <summary>
+    /// Finds an index of the node, which is not located in the MST
+    /// and can be reached with the minimum cost
+    /// </summary>
+    /// <param name="weights"></param>
+    /// <param name="isInMst"></param>
+    /// <returns></returns>
+    private int GetMinWeightIndex(int[] weights, bool[] isInMst)
+    {
+        var minValue = int.MaxValue;
+        var minIndex = 0;
+
+        for (var i = 0; i < Nodes.Count; i++)
+        {
+            if (!isInMst[i] && weights[i] < minValue)
+            {
+                minValue = weights[i];
+                minIndex = i;
+            }
+        }
+
+        return minIndex;
+    }
+
+    #endregion
+
 }
