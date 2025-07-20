@@ -1,3 +1,5 @@
+using Priority_Queue;
+
 namespace GraphDatastructures;
 
 public class Graph<T>
@@ -344,6 +346,72 @@ public class Graph<T>
         }
 
         return colors;
+    }
+
+    #endregion
+
+    #region Shortest path
+
+    public List<Edge<T>> GetShortestPath(Node<T> source, Node<T> target)
+    {
+        // Stores the indices of previous nodes, from which the given node
+        // can be reached with the smallest overall cost
+        var previous = new int[Nodes.Count];
+        Array.Fill(previous, -1);
+
+        // Stores the current minimum distances to the given node
+        var distances = new int[Nodes.Count];
+        Array.Fill(distances, int.MaxValue);
+        distances[source.Index] = 0;
+
+        var nodes = new SimplePriorityQueue<Node<T>>();
+        for (var i = 0; i < Nodes.Count; i++)
+        {
+            // The priority of each element is equal to the current
+            // distance to the node.
+            nodes.Enqueue(Nodes[i], distances[i]);
+        }
+
+        while (nodes.Count != 0)
+        {
+            var node = nodes.Dequeue();
+            for (var i = 0; i < node.Neighbors.Count; i++)
+            {
+                var neighbor = node.Neighbors[i];
+                var weight = i < node.Weights.Count
+                    ? node.Weights[i]
+                    : 0;
+
+                var wTotal = distances[node.Index] + weight;
+
+                if (distances[neighbor.Index] > wTotal)
+                {
+                    distances[neighbor.Index] = wTotal;
+                    previous[neighbor.Index] = node.Index;
+                    nodes.UpdatePriority(
+                        neighbor,
+                        distances[neighbor.Index]);
+                }
+            }
+        }
+
+        var indices = new List<int>();
+        var index = target.Index;
+        while (index >= 0)
+        {
+            indices.Add(index);
+            index = previous[index];
+        }
+
+        indices.Reverse();
+        var result = new List<Edge<T>>();
+        for (var i = 0; i < indices.Count - 1; i++)
+        {
+            var edge = this[indices[i], indices[i + 1]]!;
+            result.Add(edge);
+        }
+
+        return result;
     }
 
     #endregion
